@@ -13,8 +13,8 @@ When pressing on the search icon, an input for searching videos in a list will b
 <img width="200" src="https://user-images.githubusercontent.com/12212137/170703744-98d8a678-990d-426f-94cf-05895a437765.png"/>
 
 - New Selected Video
-<img width="200" src="https://user-images.githubusercontent.com/12212137/170703790-62de1b90-0e39-4433-9606-84a97a7d2c61.png"/>
-  
+<img width="200" src="https://user-images.githubusercontent.com/12212137/170708785-fed4b51f-c441-4571-aeaf-226fbe0c1283.png"/>
+
 - Small Video
 
 https://user-images.githubusercontent.com/12212137/170705218-bb715959-e822-43f7-99f5-d3c0da8c6900.mov
