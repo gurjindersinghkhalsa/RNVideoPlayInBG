@@ -19,7 +19,7 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
   };
 
   const ListItem = ({item}) => {
-    return <SearchListItem item={item} hideSearch={hideSearch} />;;
+    return <SearchListItem item={item} hideSearch={hideSearch} />;
   };
 
   const filterVideoList = text => {
@@ -49,7 +49,6 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
     <Modal animationType={'slide'} transparent={true} visible={showModal}>
       <View style={style.rootContainerStyle}>
         <View style={style.rootItemsContainerStyle}>
-
           <View style={style.inputContainerStyle}>
             <TextInput
               vale={searchVal}
@@ -63,19 +62,20 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
               style={style.searchIconStyle}
             />
           </View>
-          {masterData.length ? 
+          {masterData.length ?(
             <FlatList
               data={masterData}
+              keyExtractor={item => item.tag}
               ItemSeparatorComponent={SeperatorView}
               renderItem={ListItem}
             />
-           : 
+          ) : (
             <View style={style.emptyViewStyle}>
               <Text style={style.emptyTextStyle}>
                 No result found with '{searchVal}'
               </Text>
             </View>
-          }
+          )}
         </View>
       </View>
     </Modal>
@@ -95,6 +95,7 @@ const style = StyleSheet.create({
   },
   rootItemsContainerStyle: {
     backgroundColor: 'white',
+    flex: 1,
   },
   textInputStyle: {
     height: 40,
@@ -120,7 +121,7 @@ const style = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
     borderWidth: 1,
-    margin:10,
+    margin: 10,
   },
   emptyTextStyle: {
     textAlign: 'center',

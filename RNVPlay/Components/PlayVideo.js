@@ -30,7 +30,7 @@ const PlayVideo = ({source}) => {
     <Video
       source={videoSource}
       style={styles.backgroundVideo}
-      muted={true}
+      muted={false}
       repeat={true}
       resizeMode={'stretch'}
       rate={1.0}

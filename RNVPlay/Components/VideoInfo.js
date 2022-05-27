@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   titleTextStyle: {
-    fontSize: 40,
+    fontSize: 34,
     color: 'white',
     padding: 1,
   },
   descTextStyle: {
-    fontSize: 30,
+    fontSize: 22,
     color: 'white',
     padding: 2,
   },
