@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
+import {View, Text, Pressable, Image, StyleSheet, Animated} from 'react-native';
 
 function SearchListItem({item, hideSearch}) {
   let videoThumbnail = require('../Image/kiss.png');
@@ -21,6 +21,7 @@ function SearchListItem({item, hideSearch}) {
       break;
   }
   return (
+    <Animated.View>
     <View style={styles.rootContainerStyle}>
       <Pressable
         onPress={() => hideSearch(item.tag)}
@@ -34,6 +35,7 @@ function SearchListItem({item, hideSearch}) {
         </View>
       </Pressable>
     </View>
+    </Animated.View>
   );
 }
 

@@ -6,20 +6,20 @@ import {
   StyleSheet,
   FlatList,
   TextInput,
+  Text,
 } from 'react-native';
 import SearchListItem from './SearchListItem';
 
 const ShowSearch = ({showModal, dismissSearch, data}) => {
-
   const [searchVal, setsearchVal] = useState('');
   const [masterData, setmasterData] = useState(data);
-  const filterData = data
+  const filterData = data;
   const hideSearch = index => {
     dismissSearch(index);
   };
 
   const ListItem = ({item}) => {
-    return <SearchListItem item={item} hideSearch={hideSearch}/>
+    return <SearchListItem item={item} hideSearch={hideSearch} />;;
   };
 
   const filterVideoList = text => {
@@ -48,9 +48,8 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
   return (
     <Modal animationType={'slide'} transparent={true} visible={showModal}>
       <View style={style.rootContainerStyle}>
-
         <View style={style.rootItemsContainerStyle}>
-         
+
           <View style={style.inputContainerStyle}>
             <TextInput
               vale={searchVal}
@@ -64,12 +63,19 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
               style={style.searchIconStyle}
             />
           </View>
-
-          <FlatList
-            data={masterData}
-            ItemSeparatorComponent={SeperatorView}
-            renderItem={ListItem}
-          />
+          {masterData.length ? 
+            <FlatList
+              data={masterData}
+              ItemSeparatorComponent={SeperatorView}
+              renderItem={ListItem}
+            />
+           : 
+            <View style={style.emptyViewStyle}>
+              <Text style={style.emptyTextStyle}>
+                No result found with '{searchVal}'
+              </Text>
+            </View>
+          }
         </View>
       </View>
     </Modal>
@@ -91,10 +97,10 @@ const style = StyleSheet.create({
     backgroundColor: 'white',
   },
   textInputStyle: {
-    height: 40, 
-    fontSize: 20, 
-    width: '80%', 
-    margin: 10
+    height: 40,
+    fontSize: 20,
+    width: '80%',
+    margin: 10,
   },
   inputContainerStyle: {
     marginTop: 50,
@@ -106,8 +112,18 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
   },
   searchIconStyle: {
-    width: 30, 
+    width: 30,
     height: 30,
-    margin: 15
-  }
+    margin: 15,
+  },
+  emptyViewStyle: {
+    height: 100,
+    justifyContent: 'center',
+    borderWidth: 1,
+    margin:10,
+  },
+  emptyTextStyle: {
+    textAlign: 'center',
+    fontSize: 23,
+  },
 });
