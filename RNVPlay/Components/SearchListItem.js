@@ -58,17 +58,17 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     marginRight: 20,
-    fontSize: 20,
+    fontSize: 24,
     marginVertical: 5,
   },
   descStyle: {
     marginRight: 20,
-    fontSize: 16,
+    fontSize: 19,
     marginVertical: 2,
   },
   pressed: {
     opacity: 0.5,
     backgroundColor: 'gray',
-    borderRadius: 5
+    borderRadius: 5,
   },
 });

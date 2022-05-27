@@ -62,6 +62,7 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
               style={style.searchIconStyle}
             />
           </View>
+          <SeperatorView />
           {masterData.length ?(
             <FlatList
               data={masterData}
@@ -118,10 +119,9 @@ const style = StyleSheet.create({
     margin: 15,
   },
   emptyViewStyle: {
-    height: 100,
+    flex: 1,
     justifyContent: 'center',
-    borderWidth: 1,
-    margin: 10,
+    margin: 1,
   },
   emptyTextStyle: {
     textAlign: 'center',
