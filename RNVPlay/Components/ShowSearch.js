@@ -8,6 +8,7 @@ import {
   TextInput,
   Text,
 } from 'react-native';
+import {style} from '../Common/styles';
 import SearchListItem from './SearchListItem';
 
 const ShowSearch = ({showModal, dismissSearch, data}) => {
@@ -42,13 +43,13 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
   };
 
   const SeperatorView = () => {
-    return <View style={style.seperateViewStyle} />;
+    return <View style={styles.seperateViewStyle} />;
   };
 
   return (
     <Modal animationType={'slide'} transparent={true} visible={showModal}>
-      <View style={style.rootContainerStyle}>
-        <View style={style.rootItemsContainerStyle}>
+      <View style={styles.rootContainerStyle}>
+        <View style={styles.rootItemsContainerStyle}>
           <View style={style.inputContainerStyle}>
             <TextInput
               vale={searchVal}
@@ -85,7 +86,7 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
 
 export default ShowSearch;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   seperateViewStyle: {
     width: '100%',
     height: 1,
@@ -97,34 +98,5 @@ const style = StyleSheet.create({
   rootItemsContainerStyle: {
     backgroundColor: 'white',
     flex: 1,
-  },
-  textInputStyle: {
-    height: 40,
-    fontSize: 20,
-    width: '80%',
-    margin: 10,
-  },
-  inputContainerStyle: {
-    marginTop: 50,
-    backgroundColor: 'white',
-    margin: 10,
-    borderWidth: 2,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  searchIconStyle: {
-    width: 30,
-    height: 30,
-    margin: 15,
-  },
-  emptyViewStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    margin: 1,
-  },
-  emptyTextStyle: {
-    textAlign: 'center',
-    fontSize: 23,
-  },
+  }
 });

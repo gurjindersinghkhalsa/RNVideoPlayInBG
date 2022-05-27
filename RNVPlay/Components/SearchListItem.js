@@ -1,23 +1,31 @@
 import React from 'react';
 import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
+import {
+  flyKis,
+  leaf,
+  coding,
+  selfie,
+  mobileWalk,
+  nightView,
+} from '../Common/images';
 
 function SearchListItem({item, hideSearch}) {
-  let videoThumbnail = require('../Image/kiss.png');
+  let videoThumbnail = flyKis;
   switch (item.tag) {
     case 1:
-      videoThumbnail = require('../Image/leafe.png');
+      videoThumbnail = leaf;
       break;
     case 2:
-      videoThumbnail = require('../Image/macbook.png');
+      videoThumbnail = coding;
       break;
     case 3:
-      videoThumbnail = require('../Image/selfie.png');
+      videoThumbnail = selfie;
       break;
     case 4:
-      videoThumbnail = require('../Image/mobileWalk.png');
+      videoThumbnail = mobileWalk;
       break;
     case 5:
-      videoThumbnail = require('../Image/nigtView.png');
+      videoThumbnail = nightView;
       break;
   }
   return (
@@ -26,10 +34,10 @@ function SearchListItem({item, hideSearch}) {
         onPress={() => hideSearch(item.tag)}
         style={({pressed}) => pressed && styles.pressed}>
         <View style={styles.innerItemStyle}>
-          <Image source={videoThumbnail} style={styles.thumbStyle} />
+          <Image source={videoThumbnail} style={styles.thumbImgStyle} />
           <View style={styles.textContainerStyle}>
             <Text style={styles.textStyle}>{item.title}</Text>
-            <Text style={styles.descStyle}>{item.desc}</Text>
+            <Text style={[styles.textStyle,{fontSize: 19}]}>{item.desc}</Text>
           </View>
         </View>
       </Pressable>
@@ -46,7 +54,7 @@ const styles = StyleSheet.create({
   textContainerStyle: {
     marginHorizontal: 20,
   },
-  thumbStyle: {
+  thumbImgStyle: {
     width: 40,
     height: 60,
     borderRadius: 3,
@@ -59,11 +67,6 @@ const styles = StyleSheet.create({
   textStyle: {
     marginRight: 20,
     fontSize: 24,
-    marginVertical: 5,
-  },
-  descStyle: {
-    marginRight: 20,
-    fontSize: 19,
     marginVertical: 2,
   },
   pressed: {

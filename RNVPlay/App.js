@@ -11,7 +11,6 @@ function App() {
   const [tag, setTag] = useState(0);
 
   function searchBegin() {
-    console.log('searchBegin');
     setIsSearch(true);
   }
 

@@ -1,28 +1,33 @@
 import React from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 import Video from 'react-native-video';
+import {
+  fyingk,
+  leaf,
+  coding,
+  mobileWalk,
+  nightView,
+  selfie,
+} from '../Common/vidoes';
 const {height} = Dimensions.get('window');
 
 const PlayVideo = ({source}) => {
-  let videoSource = require('../Video/FlyingKis.mp4');
+  let videoSource = fyingk;
   switch (source) {
-    case 0:
-      videoSource = require('../Video/FlyingKis.mp4');
-      break;
     case 1:
-      videoSource = require('../Video/greenLeafe.mp4');
+      videoSource = leaf;
       break;
     case 2:
-      videoSource = require('../Video/MacbookCoding.mp4');
+      videoSource = coding;
       break;
     case 3:
-      videoSource = require('../Video/makingVideo.mp4');
+      videoSource = selfie;
       break;
     case 4:
-      videoSource = require('../Video/userMobile.mp4');
+      videoSource = mobileWalk;
       break;
     case 5:
-      videoSource = require('../Video/nightView.mp4');
+      videoSource = nightView;
       break;
   }
 
