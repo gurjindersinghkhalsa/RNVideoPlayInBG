@@ -1,5 +1,7 @@
 # RNVideoPlayInBG
-This is simple Video playing App. In this project a video will play in background. You can search a video from the same screen and then the selected video will play in loop.
+In the initial screen a video will be played in loop and on the top right corner will have a search icon to search for videos.
+When pressing on the search icon, an input for searching videos in a list will be shown. The user can search by the video title, description and a tag. When selecting a video in the list, the video will be played in the initial screen.
+
 
 - Initial Screen
 <img width="200" src="https://user-images.githubusercontent.com/12212137/170703502-68886ab8-8f9d-43e2-9034-7ad10f21930b.png"/>
