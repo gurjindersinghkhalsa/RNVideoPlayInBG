@@ -1,13 +1,26 @@
-import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {Text, View, StyleSheet, Animated} from 'react-native';
 
 function VideoInfo({title, desc, tag}) {
+  const fadeAnim = useRef(new Animated.Value(0)).current; 
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
   return (
-    <View style={styles.videoInfoContainerStyle}>
-      <Text style={styles.titleTextStyle}>{title}</Text>
-      <Text style={styles.descTextStyle}>{desc}</Text>
-      <Text style={styles.idTextStyle}>{tag}</Text>
-    </View>
+    <Animated.View 
+      style={{
+        opacity: fadeAnim,
+      }}>
+      <View style={styles.videoInfoContainerStyle}>
+        <Text style={styles.titleTextStyle}>{title}</Text>
+        <Text style={styles.descTextStyle}>{desc}</Text>
+        <Text style={styles.idTextStyle}>{tag}</Text>
+      </View>
+    </Animated.View>
   );
 }
 export default VideoInfo;

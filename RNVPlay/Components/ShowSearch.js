@@ -10,6 +10,7 @@ import {
 import SearchListItem from './SearchListItem';
 
 const ShowSearch = ({showModal, dismissSearch, data}) => {
+
   const [searchVal, setsearchVal] = useState('');
   const [masterData, setmasterData] = useState(data);
   const filterData = data
