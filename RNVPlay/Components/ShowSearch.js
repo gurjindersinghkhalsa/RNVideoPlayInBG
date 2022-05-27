@@ -47,11 +47,13 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
   return (
     <Modal animationType={'slide'} transparent={true} visible={showModal}>
       <View style={style.rootContainerStyle}>
-        <View style={{backgroundColor: 'white'}}>
+
+        <View style={style.rootItemsContainerStyle}>
+         
           <View style={style.inputContainerStyle}>
             <TextInput
               vale={searchVal}
-              placeholder="Search here..."
+              placeholder="Type here..."
               style={style.textInputStyle}
               onChangeText={filterVideoList}
             />
@@ -77,13 +79,15 @@ export default ShowSearch;
 
 const style = StyleSheet.create({
   seperateViewStyle: {
-    width: '95%',
-    height: 2,
+    width: '100%',
+    height: 1,
     backgroundColor: 'black',
-    marginHorizontal: 10,
   },
   rootContainerStyle: {
     flex: 1,
+  },
+  rootItemsContainerStyle: {
+    backgroundColor: 'white',
   },
   textInputStyle: {
     height: 40, 
@@ -95,7 +99,7 @@ const style = StyleSheet.create({
     marginTop: 50,
     backgroundColor: 'white',
     margin: 10,
-    borderWidth: 1,
+    borderWidth: 2,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

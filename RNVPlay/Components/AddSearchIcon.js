@@ -16,10 +16,10 @@ function AddSearchIcon({showSeachView}) {
 export default AddSearchIcon;
 const styles = StyleSheet.create({
   searchStyle: {
-    width: 40,
-    height: 40,
+    width: 36,
+    height: 36,
     padding: 10,
-    margin: 10,
+    margin: 15,
     borderRadius: 5,
   },
   searchContainerStyle: {
