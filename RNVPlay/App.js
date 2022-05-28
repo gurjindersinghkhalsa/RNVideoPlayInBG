@@ -6,12 +6,12 @@ import AddSearchIcon from './Components/AddSearchIcon';
 import VideoInfo from './Components/VideoInfo';
 import {VIDEOS} from './data/dummy-data';
 
-const App: FC<{isSearchListView?: Boolean, tag?: Number}> = ({
+const App: FC<{isSearchListView?: Boolean, playingVideoTag?: Number}> = ({
   isSearchListView = false,
-  tag = 0,
+  playingVideoTag = 0,
 }) => {
   const [isSearch, setIsSearch] = useState(isSearchListView);
-  const [presentVideoTag, setPresentVideoTag] = useState(tag);
+  const [presentVideoTag, setPresentVideoTag] = useState(playingVideoTag);
 
   function searchBegin() {
     setIsSearch(true);
