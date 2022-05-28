@@ -6,9 +6,12 @@ import AddSearchIcon from './Components/AddSearchIcon';
 import VideoInfo from './Components/VideoInfo';
 import {VIDEOS} from './data/dummy-data';
 
-const App: FC = () => {
-  const [isSearch, setIsSearch] = useState(false);
-  const [tag, setTag] = useState(0);
+const App: FC<{isSearchListView?: Boolean, tag?: Number}> = ({
+  isSearchListView = false,
+  tag = 0,
+}) => {
+  const [isSearch, setIsSearch] = useState(isSearchListView);
+  const [presentVideoTag, setPresentVideoTag] = useState(tag);
 
   function searchBegin() {
     setIsSearch(true);
@@ -16,25 +19,25 @@ const App: FC = () => {
 
   const hideSearch = tag => {
     setIsSearch(false);
-    setTag(tag);
+    setPresentVideoTag(tag);
   };
 
   return (
     <View style={styles.rootContainerStyle}>
-      <PlayVideo source={tag} />
+      <PlayVideo source={presentVideoTag} />
       <AddSearchIcon showSeachView={searchBegin} />
-      {isSearch ? 
+      {isSearch ? (
         <ShowSearch showModal={true} dismissSearch={hideSearch} data={VIDEOS} />
-       : 
+      ) : (
         <VideoInfo
-          title={VIDEOS[tag].title}
-          desc={VIDEOS[tag].desc}
-          tag={VIDEOS[tag].tag}
+          title={VIDEOS[presentVideoTag].title}
+          desc={VIDEOS[presentVideoTag].desc}
+          tag={VIDEOS[presentVideoTag].tag}
         />
-      }
+      )}
     </View>
   );
-}
+};
 
 export default App;
 
