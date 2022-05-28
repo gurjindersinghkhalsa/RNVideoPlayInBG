@@ -11,7 +11,12 @@ import {
 import {style} from '../Common/styles';
 import SearchListItem from './SearchListItem';
 
-const ShowSearch = ({showModal, dismissSearch, data}) => {
+interface Props {
+  showModal: Boolean;
+  dismissSearch: () => void;
+  data: VIDEOS;
+}
+const ShowSearch: FC<Props> = ({showModal, dismissSearch, data}) => {
   const [searchVal, setsearchVal] = useState('');
   const [masterData, setmasterData] = useState(data);
   const filterData = data;
@@ -64,7 +69,7 @@ const ShowSearch = ({showModal, dismissSearch, data}) => {
             />
           </View>
           <SeperatorView />
-          {masterData.length ?(
+          {masterData.length ? (
             <FlatList
               data={masterData}
               keyExtractor={item => item.tag}
@@ -98,5 +103,5 @@ const styles = StyleSheet.create({
   rootItemsContainerStyle: {
     backgroundColor: 'white',
     flex: 1,
-  }
+  },
 });

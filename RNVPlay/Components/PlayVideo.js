@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 import Video from 'react-native-video';
 import {
@@ -11,7 +11,11 @@ import {
 } from '../Common/vidoes';
 const {height} = Dimensions.get('window');
 
-const PlayVideo = ({source}) => {
+interface Props {
+  source: Int;
+}
+
+const PlayVideo: FC<Props> = ({source}) => {
   let videoSource = fyingk;
   switch (source) {
     case 1:

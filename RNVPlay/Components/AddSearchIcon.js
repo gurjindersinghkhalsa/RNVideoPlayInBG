@@ -1,8 +1,10 @@
 import React from 'react';
 import {View, StyleSheet, Pressable, Image} from 'react-native';
-import { style } from '../Common/styles';
-
-function AddSearchIcon({showSeachView}) {
+import {style} from '../Common/styles';
+interface Props {
+  showSeachView: () => void;
+}
+const AddSearchIcon: FC<Props> = ({showSeachView}) => {
   return (
     <View style={styles.searchContainerStyle}>
       <Pressable onPress={showSeachView}>
@@ -13,7 +15,7 @@ function AddSearchIcon({showSeachView}) {
       </Pressable>
     </View>
   );
-}
+};
 export default AddSearchIcon;
 const styles = StyleSheet.create({
   searchContainerStyle: {

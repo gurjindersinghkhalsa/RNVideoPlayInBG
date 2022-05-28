@@ -8,10 +8,16 @@ import {
   mobileWalk,
   nightView,
 } from '../Common/images';
+interface Props {
+  title: String;
+  desc: String;
+  tag: Number;
+  hideSearch: (tag: Number) => void;
+}
 
-function SearchListItem({item, hideSearch}) {
+const SearchListItem: FC<Props> = props => {
   let videoThumbnail = flyKis;
-  switch (item.tag) {
+  switch (props.item.tag) {
     case 1:
       videoThumbnail = leaf;
       break;
@@ -31,19 +37,21 @@ function SearchListItem({item, hideSearch}) {
   return (
     <View style={styles.rootContainerStyle}>
       <Pressable
-        onPress={() => hideSearch(item.tag)}
+        onPress={() => props.hideSearch(props.item.tag)}
         style={({pressed}) => pressed && styles.pressed}>
         <View style={styles.innerItemStyle}>
           <Image source={videoThumbnail} style={styles.thumbImgStyle} />
           <View style={styles.textContainerStyle}>
-            <Text style={styles.textStyle}>{item.title}</Text>
-            <Text style={[styles.textStyle,{fontSize: 19}]}>{item.desc}</Text>
+            <Text style={styles.textStyle}>{props.item.title}</Text>
+            <Text style={[styles.textStyle, {fontSize: 19}]}>
+              {props.item.desc}
+            </Text>
           </View>
         </View>
       </Pressable>
     </View>
   );
-}
+};
 
 export default SearchListItem;
 const styles = StyleSheet.create({

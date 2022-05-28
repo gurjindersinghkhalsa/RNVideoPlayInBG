@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, FC} from 'react';
 import {View, StyleSheet} from 'react-native';
 import PlayVideo from './Components/PlayVideo';
 import ShowSearch from './Components/ShowSearch';
@@ -6,7 +6,7 @@ import AddSearchIcon from './Components/AddSearchIcon';
 import VideoInfo from './Components/VideoInfo';
 import {VIDEOS} from './data/dummy-data';
 
-function App() {
+const App: FC = () => {
   const [isSearch, setIsSearch] = useState(false);
   const [tag, setTag] = useState(0);
 

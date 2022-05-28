@@ -2,8 +2,14 @@ import React, {useRef, useEffect} from 'react';
 import {Text, View, Animated} from 'react-native';
 import {style} from '../Common/styles';
 
-function VideoInfo({title, desc, tag}) {
-  const fadeAnim = useRef(new Animated.Value(0)).current; 
+interface Props {
+  title: String;
+  desc: String;
+  tag: Number;
+}
+
+const VideoInfo: FC<Props> = ({title, desc, tag}) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -14,7 +20,7 @@ function VideoInfo({title, desc, tag}) {
   }, [fadeAnim]);
 
   return (
-    <Animated.View 
+    <Animated.View
       style={{
         opacity: fadeAnim,
       }}>
@@ -25,6 +31,5 @@ function VideoInfo({title, desc, tag}) {
       </View>
     </Animated.View>
   );
-}
+};
 export default VideoInfo;
-
