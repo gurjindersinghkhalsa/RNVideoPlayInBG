@@ -10,7 +10,6 @@ import {
   selfie,
 } from '../Common/vidoes';
 const {height} = Dimensions.get('window');
-
 interface Props {
   source: Int;
 }

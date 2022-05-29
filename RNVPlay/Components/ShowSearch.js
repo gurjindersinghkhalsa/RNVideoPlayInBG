@@ -15,12 +15,18 @@ interface Props {
   showModal: Boolean;
   dismissSearch: () => void;
   data: VIDEOS;
+  textInputVal: String;
 }
-const ShowSearch: FC<Props> = ({showModal, dismissSearch, data}) => {
-  const [searchVal, setsearchVal] = useState('');
+const ShowSearch: FC<Props> = (
+  {showModal, dismissSearch, data},
+  textInputVal = '',
+) => {
+  const [searchVal, setsearchVal] = useState(textInputVal);
   const [masterData, setmasterData] = useState(data);
   const filterData = data;
+
   const hideSearch = index => {
+    console.log('hide search', index)
     dismissSearch(index);
   };
 

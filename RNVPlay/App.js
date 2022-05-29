@@ -6,14 +6,16 @@ import AddSearchIcon from './Components/AddSearchIcon';
 import VideoInfo from './Components/VideoInfo';
 import {VIDEOS} from './data/dummy-data';
 
-const App: FC<{isSearchListView?: Boolean, playingVideoTag?: Number}> = ({
-  isSearchListView = false,
-  playingVideoTag = 0,
-}) => {
+interface Props {
+  isSearchListView: Boolean;
+  playingVideoTag: Number;
+}
+const App: FC<Props> = ({isSearchListView = false, playingVideoTag = 0}) => {
+
   const [isSearch, setIsSearch] = useState(isSearchListView);
   const [presentVideoTag, setPresentVideoTag] = useState(playingVideoTag);
 
-  function searchBegin() {
+  function beginSearch() {
     setIsSearch(true);
   }
 
@@ -25,7 +27,7 @@ const App: FC<{isSearchListView?: Boolean, playingVideoTag?: Number}> = ({
   return (
     <View style={styles.rootContainerStyle}>
       <PlayVideo source={presentVideoTag} />
-      <AddSearchIcon showSeachView={searchBegin} />
+      <AddSearchIcon showSeachView={beginSearch} />
       {isSearch ? (
         <ShowSearch showModal={true} dismissSearch={hideSearch} data={VIDEOS} />
       ) : (

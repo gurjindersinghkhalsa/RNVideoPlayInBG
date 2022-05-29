@@ -15,9 +15,10 @@ interface Props {
   hideSearch: (tag: Number) => void;
 }
 
-const SearchListItem: FC<Props> = props => {
+const SearchListItem: FC<Props> = ({item, hideSearch}) => {
   let videoThumbnail = flyKis;
-  switch (props.item.tag) {
+  const {title, desc, tag} = item;
+  switch (tag) {
     case 1:
       videoThumbnail = leaf;
       break;
@@ -37,15 +38,13 @@ const SearchListItem: FC<Props> = props => {
   return (
     <View style={styles.rootContainerStyle}>
       <Pressable
-        onPress={() => props.hideSearch(props.item.tag)}
+        onPress={() => hideSearch(tag)}
         style={({pressed}) => pressed && styles.pressed}>
         <View style={styles.innerItemStyle}>
           <Image source={videoThumbnail} style={styles.thumbImgStyle} />
           <View style={styles.textContainerStyle}>
-            <Text style={styles.textStyle}>{props.item.title}</Text>
-            <Text style={[styles.textStyle, {fontSize: 19}]}>
-              {props.item.desc}
-            </Text>
+            <Text style={styles.textStyle}>{title}</Text>
+            <Text style={[styles.textStyle, {fontSize: 19}]}>{desc}</Text>
           </View>
         </View>
       </Pressable>
