@@ -14,7 +14,8 @@ interface Props {
   source: Int;
 }
 
-const PlayVideo: FC<Props> = ({source}) => {
+// function PlayVideo({source}: Props) {
+const PlayVideo: FC = ({source}:Props) => {
   let videoSource = fyingk;
   switch (source) {
     case 1:

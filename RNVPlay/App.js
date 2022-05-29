@@ -10,11 +10,11 @@ interface Props {
   isSearchListView: Boolean;
   playingVideoTag: Number;
 }
+
 const App: FC<Props> = ({isSearchListView = false, playingVideoTag = 0}) => {
 
   const [isSearch, setIsSearch] = useState(isSearchListView);
   const [presentVideoTag, setPresentVideoTag] = useState(playingVideoTag);
-
   function beginSearch() {
     setIsSearch(true);
   }
